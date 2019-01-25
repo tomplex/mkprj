@@ -13,7 +13,7 @@ mkprj is a tool to help create a new Python project, setting up all the boilerpl
 
 """
 
-__version__ = (0, 1, 0)
+__version__ = (0, 1, 1)
 
 
 import sys

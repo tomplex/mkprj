@@ -52,6 +52,7 @@ if not VERSION:
     with open(os.path.join(here, '{}.py'.format(NAME))) as f:
         match = re.findall("(__version__ = \(\d+, \d+, \d+\))\n", f.read())[0]
         version = exec(match, about)
+        about['__version__'] = '.'.join(map(str, about['__version__']))
 
 else:
     about['__version__'] = VERSION
@@ -97,7 +98,7 @@ class UploadCommand(Command):
 # Where the magic happens:
 setup(
     name=NAME,
-    version='.'.join(map(str, about['__version__'])),
+    version=about['__version__'],
     description=DESCRIPTION,
     long_description=long_description,
     long_description_content_type='text/markdown',
